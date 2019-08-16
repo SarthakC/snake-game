@@ -1,0 +1,27 @@
+.arena {
+    position: relative;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    width: 600px;
+    height: 600px;
+    border: 2px solid blue;
+}
+
+.scoreboard {
+    padding: 0px !important;
+}
+
+.dot {
+    position: absolute;
+    width: 2%;
+    height: 2%;
+    border: 1px solid white;
+}
+
+.snake-body>.dot {
+    background-color: black;
+}
+
+.red-bg {
+    background-color: red;
+}
