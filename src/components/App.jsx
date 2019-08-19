@@ -4,7 +4,9 @@ import SnakeBody from "./SnakeBody";
 import Target from "./Target";
 import getRandomCoordinates from "../functions/getRandomCoordinates";
 import Header from "./Header";
-// import keyPress from "../functions/keyPress";
+
+// new imports
+import { moveSnake } from "../actions/index";
 
 const initialState = {
   direction: null,
@@ -48,32 +50,32 @@ export default class App extends Component {
     }
   };
 
-  moveSnake = () => {
-    let snakePulse = this.state.pulse;
-    let snakeDots = [...this.state.snakeBodyCoordinates];
-    let snakeHead = snakeDots[snakeDots.length - 1];
-    switch (this.state.direction) {
-      case "RIGHT":
-        snakeHead = [snakeHead[0] + snakePulse, snakeHead[1]];
-        break;
-      case "LEFT":
-        snakeHead = [snakeHead[0] - snakePulse, snakeHead[1]];
-        break;
-      case "UP":
-        snakeHead = [snakeHead[0], snakeHead[1] - snakePulse];
-        break;
-      case "DOWN":
-        snakeHead = [snakeHead[0], snakeHead[1] + snakePulse];
-        break;
-      default:
-        break;
-    }
-    snakeDots.push(snakeHead);
-    snakeDots.shift();
-    this.setState({
-      snakeBodyCoordinates: snakeDots
-    });
-  };
+  // moveSnake = () => {
+  //   let snakePulse = this.state.pulse;
+  //   let snakeDots = [...this.state.snakeBodyCoordinates];
+  //   let snakeHead = snakeDots[snakeDots.length - 1];
+  //   switch (this.state.direction) {
+  //     case "RIGHT":
+  //       snakeHead = [snakeHead[0] + snakePulse, snakeHead[1]];
+  //       break;
+  //     case "LEFT":
+  //       snakeHead = [snakeHead[0] - snakePulse, snakeHead[1]];
+  //       break;
+  //     case "UP":
+  //       snakeHead = [snakeHead[0], snakeHead[1] - snakePulse];
+  //       break;
+  //     case "DOWN":
+  //       snakeHead = [snakeHead[0], snakeHead[1] + snakePulse];
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  //   snakeDots.push(snakeHead);
+  //   snakeDots.shift();
+  //   this.setState({
+  //     snakeBodyCoordinates: snakeDots
+  //   });
+  // };
 
   checkBorderCollision() {
     let snakeHead = this.state.snakeBodyCoordinates[

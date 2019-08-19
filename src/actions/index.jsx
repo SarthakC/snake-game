@@ -12,3 +12,10 @@ export const signOut = () => {
     type: SIGN_OUT
   };
 };
+
+export const moveSnake = snakeHead => {
+  return {
+    type: "MOVE_SNAKE",
+    payload: snakeHead
+  };
+};
